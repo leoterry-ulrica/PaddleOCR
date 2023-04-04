@@ -3,14 +3,15 @@
         "kie_ser_re": {
             "init_args": {
                 "version": "1.0.0",
-                "use_gpu": true
+                "use_gpu": false,
+                "enable_mkldnn": true
             },
             "predict_args": {
             }
         }
     },
     "port": 8872,
-    "use_multiprocess": false,
+    "use_multiprocess": true,
     "workers": 2
 }
 
