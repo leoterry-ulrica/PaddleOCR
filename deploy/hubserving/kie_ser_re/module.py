@@ -122,6 +122,7 @@ class KIESerRE(hub.Module):
             re_res, _ = self.ser_re_predictor(img)
             print(re_res)
             elapse = time.time() - starttime
+            print("Predict time: {}".format(elapse))
             logger.info("Predict time: {}".format(elapse))
             all_results.append(re_res)
         return all_results
