@@ -44,7 +44,7 @@ from deploy.hubserving.kie_ser_re.params import read_params
     author_email="paddle-dev@baidu.com",
     type="cv/KIE_SER_RE")
 class KIESerRE(hub.Module):
-    def _initialize(self, use_gpu=False, enable_mkldnn=False):
+    def _initialize(self, use_gpu=False, enable_mkldnn=True):
         """
         initialize with the necessary elements
         """

@@ -43,7 +43,7 @@ from deploy.hubserving.ocr_system.params import read_params
     author_email="paddle-dev@baidu.com",
     type="cv/PP-OCR_system")
 class OCRSystem(hub.Module):
-    def _initialize(self, use_gpu=False, enable_mkldnn=False):
+    def _initialize(self, use_gpu=False, enable_mkldnn=True):
         """
         initialize with the necessary elements
         """
