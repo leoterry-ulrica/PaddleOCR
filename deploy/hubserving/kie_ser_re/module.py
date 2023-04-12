@@ -18,6 +18,9 @@ from __future__ import print_function
 
 import os
 import sys
+
+from deploy.hubserving.ocr_system.module import OCRSystem
+
 sys.path.insert(0, ".")
 import copy
 
@@ -79,6 +82,7 @@ class KIESerRE(hub.Module):
             cfg.__setattr__(key, update_cfg_map[key])
 
         sys.argv = copy.deepcopy(backup_argv)
+        print("config: {}".format(cfg))
         return cfg
 
     def read_images(self, paths=[]):

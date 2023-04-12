@@ -193,6 +193,7 @@ def create_predictor(args, mode, logger):
             if os.path.exists(model_file_path) and os.path.exists(
                     params_file_path):
                 break
+        print("model_dir: {}".format(model_file_path))
         if not os.path.exists(model_file_path):
             raise ValueError(
                 "not find model.pdmodel or inference.pdmodel in {}".format(

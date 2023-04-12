@@ -40,6 +40,8 @@ logger = get_logger()
 
 class SerPredictor(object):
     def __init__(self, args):
+        print("args.det_model_dir: {}".format(args.det_model_dir))
+        print("args.rec_model_dir: {}".format(args.rec_model_dir))
         self.ocr_engine = PaddleOCR(
             use_angle_cls=args.use_angle_cls,
             det_model_dir=args.det_model_dir,
