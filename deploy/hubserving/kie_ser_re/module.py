@@ -47,7 +47,7 @@ from deploy.hubserving.kie_ser_re.params import read_params
     author_email="paddle-dev@baidu.com",
     type="cv/KIE_SER_RE")
 class KIESerRE(hub.Module):
-    def _initialize(self, use_gpu=False, enable_mkldnn=True):
+    def _initialize(self, use_gpu=False, enable_mkldnn=False):
         """
         initialize with the necessary elements
         """
@@ -67,7 +67,7 @@ class KIESerRE(hub.Module):
                 )
         cfg.ir_optim = True
         cfg.enable_mkldnn = enable_mkldnn
-
+        print("config: {}".format(cfg))
         self.ser_re_predictor = SerRePredictor(cfg)
 
     def merge_configs(self, ):
@@ -82,7 +82,6 @@ class KIESerRE(hub.Module):
             cfg.__setattr__(key, update_cfg_map[key])
 
         sys.argv = copy.deepcopy(backup_argv)
-        print("config: {}".format(cfg))
         return cfg
 
     def read_images(self, paths=[]):
@@ -142,11 +141,18 @@ class KIESerRE(hub.Module):
 
 
 if __name__ == '__main__':
-    ocr = OCRSystem()
-    ocr._initialize()
-    image_path = [
-        './doc/imgs/11.jpg',
-        './doc/imgs/12.jpg',
+    kir = KIESerRE()
+    kir._initialize()
+    paths = [
+        'D:/test.png'
     ]
-    res = ocr.predict(paths=image_path)
+    res = kir.predict(paths=paths)
     print(res)
+    # ocr = OCRSystem()
+    # ocr._initialize()
+    # image_path = [
+    #     './doc/imgs/11.jpg',
+    #     './doc/imgs/12.jpg',
+    # ]
+    # res = ocr.predict(paths=image_path)
+    # print(res)

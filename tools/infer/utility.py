@@ -87,7 +87,7 @@ def init_args():
     parser.add_argument("--rec_model_dir", type=str)
     parser.add_argument("--rec_image_inverse", type=str2bool, default=True)
     parser.add_argument("--rec_image_shape", type=str, default="3, 48, 320")
-    parser.add_argument("--rec_batch_num", type=int, default=6)
+    parser.add_argument("--rec_batch_num", type=int, default=20)
     parser.add_argument("--max_text_length", type=int, default=25)
     parser.add_argument(
         "--rec_char_dict_path",
@@ -136,7 +136,7 @@ def init_args():
     parser.add_argument("--crop_res_save_dir", type=str, default="./output")
 
     # multi-process
-    parser.add_argument("--use_mp", type=str2bool, default=False)
+    parser.add_argument("--use_mp", type=str2bool, default=True)
     parser.add_argument("--total_process_num", type=int, default=1)
     parser.add_argument("--process_id", type=int, default=0)
 
